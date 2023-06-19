@@ -1,12 +1,19 @@
+### JWT Passport TypeORM Exam
+db : postgresql
+
+```
+jwt 토큰으로 인증 권한체크하는 예제
+```
+
 ## Auth
 ```
-@Post
+@Post 회원가입
 /auth/signup
 
 "username" : "user",
 "password" : '1234'
 
-@Post
+@Post 로그인
 /auth/signin
 
 "username" : "user",
@@ -15,24 +22,30 @@
 
 ## Boards
 ```
-@Get
+@Get 나의 게시글 보기
 /boards
 
-@Get
+Authorization Bearer Token : { access token }
+
+@Get 게시글 보기
 /boards/:id
 
-@Post
+@Post 게시글 작성
 /boards/:id
 
+Authorization Bearer Token : { access token }
 "title" : "title",
 "description" : "content"
 
-@Delete
+@Delete 게시글 삭제
 /boards/:id
 
-@Patch
+Authorization Bearer Token : { access token }
+
+@Patch 게시글 수정
 /boards/:id/status
 
+Authorization Bearer Token : { access token }
 "status" : "PRIVATE" || "PUBLIC"
 ```
 
